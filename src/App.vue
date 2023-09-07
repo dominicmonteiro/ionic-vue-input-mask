@@ -1,5 +1,4 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
   <div class="hello">
     <p>
       For a guide and recipes on how to configure / customize this project,<br>
@@ -7,8 +6,14 @@
       <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
     </p>
     <h3>Input Examples</h3>
-    <div v-maskio="'##-S'">
-      <input/>
+    <div>
+      <input v-maskio="'##-S'"/>
+
+      <input v-maskio="'##-###-#-#'"/>
+
+      <input v-maskio="'##/##/####'"/>
+
+      <input v-maskio="'##-##-####-##'"/>
     </div>
   </div>
 </template>

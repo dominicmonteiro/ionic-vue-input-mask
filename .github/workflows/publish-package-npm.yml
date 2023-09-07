@@ -1,0 +1,38 @@
+name: Publicar Pacote NPM
+
+on:
+  push:
+    branches:
+      - main # Defina a branch na qual você deseja acionar o workflow
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v2
+
+      - name: Configurar o Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16 # Especifique a versão do Node.js desejada
+
+      - name: Instalar dependências
+        run: npm install
+
+      - name: Executar testes
+        run: npm test
+
+      - name: Construir pacote
+        run: npm run build:lib # Substitua pelo comando de construção apropriado
+
+      - name: Configurar variáveis de ambiente
+        run: |
+          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_AUTH_TOKEN }}" > ~/.npmrc
+        env:
+          NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+
+      - name: Publicar no npm
+        run: npm publish --access public # --access public é usado para pacotes públicos
+

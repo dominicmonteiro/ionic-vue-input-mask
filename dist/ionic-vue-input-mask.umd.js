@@ -54,6 +54,7 @@ __webpack_require__.r(__webpack_exports__);
 
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
+  VMask: function() { return /* reexport */ directive; },
   "default": function() { return /* binding */ entry_lib; }
 });
 
@@ -198,18 +199,18 @@ function dynamicMask(maskit, masks, tokens) {
 // U	Any letter (All lower case character will be mapped to uppercase)
 // L	Any letter (All upper case character will be mapped to lowercase)
 // $	Escape character, used to escape any of the special formatting characters.
-;// CONCATENATED MODULE: ./src/v-maskio.js
+;// CONCATENATED MODULE: ./src/directive.js
 
 
 
 // https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Creating_and_triggering_events#The_old-fashioned_way
-function v_maskio_event(name) {
+function directive_event(name) {
   return new Event(name, {
     bubbles: true,
     cancelable: true
   });
 }
-/* harmony default export */ function v_maskio(el, binding) {
+/* harmony default export */ function directive(el, binding) {
   var config = binding.value;
   if (Array.isArray(config) || typeof config === 'string') {
     config = {
@@ -245,35 +246,26 @@ function v_maskio_event(name) {
         el.setSelectionRange(position, position);
       }, 0);
     }
-    el.dispatchEvent(v_maskio_event('input'));
+    el.dispatchEvent(directive_event('input'));
   };
   var newDisplay = masker(el.value, config.mask, true, config.tokens);
   if (newDisplay !== el.value) {
     el.value = newDisplay;
-    el.dispatchEvent(v_maskio_event('input'));
+    el.dispatchEvent(directive_event('input'));
   }
 }
-
-/*
-    if(el.tagName === 'ION-INPUT') {
-      el.shadowRoot.querySelector('input').addEventListener('input', (event) => {
-        // Aplicar a máscara ao valor do input
-        const maskedValue = applyMask(event.target.value, mask);
-  
-        // Atualizar o valor do input com a máscara
-        event.target.value = maskedValue;
-      });
-    }
-*/
 ;// CONCATENATED MODULE: ./src/index.js
-// src/index.js
 
 const install = app => {
-  app.directive('maskio', v_maskio);
+  app.directive('mask', directive);
 };
-/* harmony default export */ var src_0 = ({
-  install
-});
+/* harmony default export */ var src_0 = (install);
+
+
+// Install by default if included from script tag
+if (typeof window !== 'undefined' && window.Vue) {
+  window.Vue.use(install);
+}
 ;// CONCATENATED MODULE: ./node_modules/@vue/cli-service/lib/commands/build/entry-lib.js
 
 
