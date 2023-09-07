@@ -11,9 +11,9 @@ A lightweight (2KB gzipped) and dependency free mask input created specific for 
 ## Install
 
 ```
-yarn add vue-the-mask
+yarn add npm i ionic-vue-input-mask
 or
-npm i -S vue-the-mask
+npm i -S npm i ionic-vue-input-mask
 ```
 
 ## Usage (two flavors)
