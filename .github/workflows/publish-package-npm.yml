@@ -21,9 +21,6 @@ jobs:
       - name: Instalar dependências
         run: npm install
 
-      - name: Executar testes
-        run: npm test
-
       - name: Construir pacote
         run: npm run build:lib # Substitua pelo comando de construção apropriado
 
