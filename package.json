@@ -1,11 +1,14 @@
 {
-  "name": "input-maskio",
-  "version": "0.1.0",
+  "description": "Uma biblioteca para adicionar máscaras a campos de entrada Vue.",
+  "main": "dist/index.js",
+  "name": "ionic-vue-input-mask",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "build:lib": "vue-cli-service build --target lib --name ionic-vue-input-mask src/index.js"
   },
   "dependencies": {
     "core-js": "^3.8.3",
