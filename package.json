@@ -2,7 +2,7 @@
   "description": "Uma biblioteca para adicionar máscaras a campos de entrada Vue.",
   "main": "src/index.js",
   "name": "ionic-vue-input-mask",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "license": "MIT",
   "scripts": {
     "serve": "vue-cli-service serve",
