@@ -15,16 +15,15 @@ export default function (el, binding) {
     }
   }
 
-  if (el.tagName.toLocaleUpperCase() !== 'INPUT') {
-    setTimeout(() => {
-      var els = el.querySelectorAll('INPUT');
-      if (els.length !== 1) {
-        throw new Error("v-mask directive requires 1 input, found " + els.length)
-      } else {
-        el = els[0]
-      }
-    }, 50);
-  }
+  if (el.tagName.toLocaleUpperCase() !== 'INPUT' && el.tagName.toLocaleUpperCase() !== 'ION-INPUT') {
+    var els = el.getElementsByTagName('input');
+    if (els.length !== 1) {
+      throw new Error("v-mask directive requires 1 input, found " + els.length)
+    } else {
+      el = els[0]
+    }
+}
+
 
   el.oninput = function (evt) {
     if (!evt.isTrusted) return // avoid infinite loop

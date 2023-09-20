@@ -1,8 +1,8 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 
-import maskio from './v-maskio.js'
+import mask from './directive.js';
 
 const app = createApp(App);
-app.directive('maskio', maskio);
+app.directive('mask', mask);
 app.mount('#app');

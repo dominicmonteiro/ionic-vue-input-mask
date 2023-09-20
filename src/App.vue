@@ -7,13 +7,13 @@
     </p>
     <h3>Input Examples</h3>
     <div>
-      <input v-maskio="'##-S'"/>
+      <input v-mask="'##-S'"/>
 
-      <input v-maskio="'##-###-#-#'"/>
+      <input v-mask="'##-###-#-#'"/>
 
-      <input v-maskio="'##/##/####'"/>
+      <input v-mask="'##/##/####'"/>
 
-      <input v-maskio="'##-##-####-##'"/>
+      <input v-mask="'##-##-####-##'"/>
     </div>
   </div>
 </template>
